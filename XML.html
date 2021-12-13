@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="XML_Example"></p>
+        <script>
+            var XML_Parser, XML_Document;
+
+            var Mtg = "<Mtg>" +
+            "<cardname>Tarmogoyf</cardname>"+
+            "<cardtype>Creature</cardtype>"+
+            "<cardcolor>Green</cardcolor>"+
+            "<castingcost>1G</castingcost>"+
+            "</Mtg>";
+
+            XML_Parser= new DOMParser();
+
+            XML_Document = XML_Parser.parseFromString(Mtg, "text/xml");
+
+            document.getElementById("XML_Example").innerHTML=XML_Document.getElementsByTagName("cardname")[0].childNodes[0].nodeValue;
+        </script>
+    </body>
+</html>
